@@ -280,50 +280,55 @@ In \Eq{eq:posdevSTM}, $\Phi_{rr}$ and $\Phi_{rv}$ are $3$-by-$3$ matrices that m
 
 %% S/K results
 \subsubsection{Station-keeping results}\label{subsubsec:S/K results}
-\tr{ARRIVED HERE}\newpage
+\Table{tab:SKUncertainties} reports the standard deviations of orbit insertion, navigation, and maneuver execution errors for the S/K analysis. The values of \Table{tab:SKUncertainties} are in well accordane with existing applications, \eg Artemis \cite{folta2014artemis}. More important, simulations have shown the standard deviations of \Table{tab:SKUncertainties} can be achieved with the autonomous optical navigation algorithm on-board LUMIO \cite{franzese2018NavSciTech}. All parameters for the correct functioning of Algorithm \ref{alg:SK} have been fine-tuned with extensive simulation campaigns. The parameters fine-tuned values of the S/K algorithm are shown in \Table{tab:SKParameters}. The cut-off duration of $12$ hours is at the same time sufficiently short to prevent the spacecraft state knowledge from growing, and long enough to schedule maneuver execution operations on-board LUMIO. The target points are located at $35$ and $42$ days after orbit insertion and any subsequent S/K maneuvers. Such distant target points ensure approximately one month of quasi-halo tracking in case of maneuver execution failure. Finally, having the eigenspectrum of $Q$ a larger magnitude than that $R_i$ means the optimization weighs the deviation with respect to reference position more than the $\Delta\vect{v}_{S/K}$ cost.
 %
 \begin{table}[b!]
 	\centering
-	\begin{tabular}{cc}
-		\begin{minipage}{.5\textwidth}
-			\caption{Modeled standard deviations.}
-			\label{tab:SKUncertainties}
-			\centering
-			\begin{tabular}{ccc}
-				\TOPlines
-				Standard deviation & LUMIO & Units \\ 
-				\MIDline
-				$\sigma_{OI_x}$, $\sigma_{OI_y}$, $\sigma_{OI_z}$ & $10$, $10$, $10$ & [km] \\
-				$\sigma_{OI_u}$, $\sigma_{OI_v}$, $\sigma_{OI_w}$ & $10$, $10$, $10$ & [cm/s] \\
-				$\sigma_{OD_x}$, $\sigma_{OD_y}$, $\sigma_{OD_z}$ & $10$, $10$, $10$ & [km] \\
-				$\sigma_{OD_u}$, $\sigma_{OD_v}$, $\sigma_{OD_w}$ & $10$, $10$, $10$ & [cm/s] \\
-				$\sigma_{EX_u}$, $\sigma_{EX_v}$, $\sigma_{EX_w}$ & $2$, $2$, $2$ & [\%] \\
-				\BOTTOMlines
-			\end{tabular}
-		\end{minipage}
-		%
-		\begin{minipage}{.5\textwidth}
-			\caption{Parameters of S/K analysis.}
-			\label{tab:SKParameters}
-			\centering
-			\begin{tabular}{ccc}
-				\TOPlines
-				Parameter & Value & Units \\
-				\MIDline
-				$\Delta t_c$ & $12$ & [hr] \\
-				$\Delta t_1$ & $35$ & [days] \\
-				$\Delta t_2$ & $42$ & [days] \\
-				$Q$ & $I_{3\times3}\cdot10^{-1}$ & [-] \\
-				$R_1$ & $I_{3\times3}\cdot10^{-2}$ & [-] \\
-				$R_2$ & $I_{3\times3}\cdot10^{-2}$ & [-] \\
-				\BOTTOMlines
-			\end{tabular}
-		\end{minipage}
+		\caption{Modeled standard deviations.}
+		\label{tab:SKUncertainties}
+		\centering
+		\begin{tabular}{ccc}
+			\TOPlines
+			Standard deviation & LUMIO & Units \\ 
+			\MIDline				$\sigma_{OI_x}$, $\sigma_{OI_y}$, $\sigma_{OI_z}$ & $10$, $10$, $10$ & [km] \\
+			$\sigma_{OI_u}$, $\sigma_{OI_v}$, $\sigma_{OI_w}$ & $10$, $10$, $10$ & [cm/s] \\
+			$\sigma_{OD_x}$, $\sigma_{OD_y}$, $\sigma_{OD_z}$ & $10$, $10$, $10$ & [km] \\
+			$\sigma_{OD_u}$, $\sigma_{OD_v}$, $\sigma_{OD_w}$ & $10$, $10$, $10$ & [cm/s] \\
+			$\sigma_{EX_u}$, $\sigma_{EX_v}$, $\sigma_{EX_w}$ & $2$, $2$, $2$ & [\%] \\
+			\BOTTOMlines
+		\end{tabular}
+\end{table}
+%
+%
+\begin{table}[b!]
+	\caption{Parameters of S/K analysis.}
+	\label{tab:SKParameters}
+	\centering
+	\begin{tabular}{ccc}
+		\TOPlines
+		Parameter & Value & Units \\
+		\MIDline
+		$\Delta t_c$ & $12$ & [hr] \\
+		$\Delta t_1$ & $35$ & [days] \\
+		$\Delta t_2$ & $42$ & [days] \\				$Q$ & $I_{3\times3}\cdot10^{-1}$ & [-] \\
+		$R_1$ & $I_{3\times3}\cdot10^{-2}$ & [-] \\
+		$R_2$ & $I_{3\times3}\cdot10^{-2}$ & [-] \\
+		\BOTTOMlines
 	\end{tabular}
 \end{table}
 %
-\Table{tab:SKUncertainties} reports the standard deviations of orbit insertion, navigation, and maneuver execution errors for the S/K analysis. The values of \Table{tab:SKUncertainties} are in well accordane with existing applications, \eg Artemis \cite{folta2014artemis}. More important, simulations have shown the standard deviations of \Table{tab:SKUncertainties} can be achieved with the autonomous optical navigation algorithm on-board LUMIO \cite{franzese2017thesis}. All parameters for the correct functioning of Algorithm \ref{alg:SK} have been fine-tuned with extensive simulation campaigns. The parameters fine-tuned values of the S/K algorithm are shown in \Table{tab:SKParameters}. The cut-off duration of $12$ hours is at the same time sufficiently short to prevent the spacecraft state knowledge from growing, and long enough to schedule maneuver execution operations on-board LUMIO. The target points are located at $35$ and $42$ days after orbit insertion and any subsequent S/K maneuvers. Such distant target points ensure approximately one month of quasi-halo tracking in case of maneuver execution failure. Finally, having the eigenspectrum of $Q$ a larger magnitude than that $R_i$ means the optimization weighs the deviation with respect to reference position more than the $\Delta\vect{v}_{S/K}$ cost.
 
+\Fig{fig:SK_strategy} shows the strategy employed for S/K maneuvers timing. For clarity, just $70$ days of operations are shown and the quasi-halo orbital period is assumed to be fixed and equal to $14$ days. The first quasi-halo orbit is entirely dedicated to recover any {OI} errors by means of two maneuvers (after $1$ and $7$ days after OI). In the orbits after that, nominal operations occur, \ie there is a series of Nav\&Eng and Science orbits. Three S/K maneuvers are placed within the Nav\&Eng orbit: the first at the entry point, the second in the middle (\ie $7$ days after the entry), and the third at the end of the Nav\&Eng orbit. This maneuvers frequency configuration allows for pristine Science orbit operations, albeit it increases the cost when compared to a more spread and regular distribution of S/K maneuvers.
+%
+\begin{figure*}[]
+	\centering
+	\includegraphics[width=\textwidth]{SK_strategy.pdf}
+	\caption{Strategy for station-keeping maneuvers timing.}
+	\label{fig:SK_strategy}
+\end{figure*}
+%
+
+S/K cost is computed for one year of life cycle for each of the quasi-halos in \Table{tab:EMquasihalo}. To obtain reliable S/K cost estimation results, a massive Monte-Carlo simulation of $10,000$ cases is performed with respect to each reference orbit generated. Each Monte-Carlo run employs Algorithm \ref{alg:SK} to compute S/K cost for a realization of $\vect{\varepsilon}_{OI}$, $\vect{\varepsilon}_{OD}$, and $\vect{\varepsilon}_{EX}$. \Table{tab:SKconfidence} displays the $1$-year S/K cost with $1\sigma$, $2\sigma$, and $3\sigma$ confidence. The Monte-Carlo data is fitted by means of an Inverse Gaussian distribution. \Fig{fig:YearlySKcost} shows mean values with associated standard deviations (displayed as error bars) of the $1$-year S/K cost. As expected, the S/K cost increases for smaller (\ie higher Jacobi constant) quasi-halos. This trend reflects the stability (eigenspectrum of monodromy matrix) properties of halo orbits. That is, a larger halo is generally less unstable and thus cheaper to maintain. Finally, \Fig{fig:Halo9distribution} shows the probability distribution function (\Fig{subfig:SK_pdf}) and the cumulative distribution function (\Fig{subfig:SK_cdf}) for the specific case of quasi-halo of ID $-100009$. Clearly, the Inverse Gaussian distribution well fits the raw data, results of the Monte-Carlo simulation for the yearly $\Delta\vect{v}_S/K$ cost.
 %
 \begin{table}[]
 	\caption{Confidence for the $1$-year station-keeping cost.}
@@ -352,38 +357,30 @@ In \Eq{eq:posdevSTM}, $\Phi_{rr}$ and $\Phi_{rv}$ are $3$-by-$3$ matrices that m
 	\end{tabular}
 \end{table}
 %
-\Fig{fig:SK_strategy} shows the strategy employed for S/K maneuvers timing. For clarity, just $70$ days of operations are shown and the quasi-halo orbital period is assumed to be fixed and equal to $14$ days. Critical considerations are drawn regarding the latter assumption (\ie steady and repetitive operations scheme) in Section \ref{sec:granularops}. The first quasi-halo orbit is entirely dedicated to recover any {OI} errors by means of two maneuvers (after $1$ and $7$ days after OI). In the orbits after that, nominal operations occur, \ie there is a series of Nav\&Eng and Science orbits. Three S/K maneuvers are placed within the Nav\&Eng orbit: the first at the entry point, the second in the middle (\ie $7$ days after the entry), and the third at the end of the Nav\&Eng orbit. This maneuvers frequency configuration allows for pristine Science orbit operations, albeit it increases the cost when compared to a more spread and regular distribution of S/K maneuvers.
 %
-\begin{figure}[]
+\begin{figure*}[b!]
 	\centering
-	\includegraphics[width=\textwidth]{SK_strategy.pdf}
-	\caption{Strategy for station-keeping maneuvers timing.}
-	\label{fig:SK_strategy}
-\end{figure}
-%
-
-%
-\begin{figure}[t!]
-	\centering
-	\includegraphics[width=\budgetwi]{vSK.pdf}
+	\includegraphics[width=0.75\textwodth]{vSK.pdf}
 	\caption{Yearly station-keeping cost for set of quasi-halos.}
 	\label{fig:YearlySKcost}
 \end{figure}
 %
-%
-\begin{figure}[b!]
-	\centering
-	\hfill
-	\subfloat[Probability distribution function.]{\includegraphics[width=0.49\textwidth]{SK_pdf.pdf}\label{subfig:SK_pdf}}
-	\hfill
-	\subfloat[Cumulative distribution function.]{\includegraphics[width=0.49\textwidth]{SK_cdf.pdf}\label{subfig:SK_cdf}}
-	\hfill
-	\caption[Inverse Gaussian distribution fit of station-keeping.]{Station-keeping yearly cost statistics for quasi-halo $-100009$. Data is fitted with an inverse Gaussian distribution.}
-	\label{fig:Halo9distribution}
-\end{figure}
-%
 
-S/K cost is computed for one year of life cycle for each of the quasi-halos in \Table{tab:EMquasihalo}. To obtain reliable S/K cost estimation results, a massive Monte-Carlo simulation of $10,000$ cases is performed with respect to each reference orbit generated. Each Monte-Carlo run employs Algorithm \ref{alg:SK} to compute S/K cost for a realization of $\vect{\varepsilon}_{OI}$, $\vect{\varepsilon}_{OD}$, and $\vect{\varepsilon}_{EX}$. \Table{tab:SKconfidence} displays the $1$-year S/K cost with $1\sigma$, $2\sigma$, and $3\sigma$ confidence. The Monte-Carlo data is fitted by means of an Inverse Gaussian distribution. \Fig{fig:YearlySKcost} shows mean values with associated standard deviations (displayed as error bars) of the $1$-year S/K cost. As expected, the S/K cost increases for smaller (\ie higher Jacobi constant) quasi-halos. This trend reflects the stability (eigenspectrum of monodromy matrix) properties of halo orbits. That is, a larger halo is generally less unstable and thus cheaper to maintain. Finally, \Fig{fig:Halo9distribution} shows the probability distribution function (\Fig{subfig:SK_pdf}) and the cumulative distribution function (\Fig{subfig:SK_cdf}) for the specific case of quasi-halo of ID $-100009$. Clearly, the Inverse Gaussian distribution well fits the raw data, results of the Monte-Carlo simulation for the yearly $\Delta\vect{v}_S/K$ cost.
+
+
+%%
+%\begin{figure}[b!]
+%	\centering
+%	\hfill
+%	\subfloat[Probability distribution function.]{\includegraphics[width=0.49\textwidth]{SK_pdf.pdf}\label{subfig:SK_pdf}}
+%	\hfill
+%	\subfloat[Cumulative distribution function.]{\includegraphics[width=0.49\textwidth]{SK_cdf.pdf}\label{subfig:SK_cdf}}
+%	\hfill
+%	\caption[Inverse Gaussian distribution fit of station-keeping.]{Station-keeping yearly cost statistics for quasi-halo $-100009$. Data is fitted with an inverse Gaussian distribution.}
+%	\label{fig:Halo9distribution}
+%\end{figure}
+%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Discrete manifold scan  %%%%%
