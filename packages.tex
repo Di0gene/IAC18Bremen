@@ -2,7 +2,7 @@
 %!TEX spellcheck = en-en_US
 
 %%%%%%%% Graphics %%%%%%%%
-\graphicspath{{gfx/}}
+\graphicspath{{gfx/}{/Users/Entropia/ProjectsOnGit/Thesis/ThesisPhD/gfx/chap6/}}
 
 %%%%%%%% Packages %%%%%%%%
 \PassOptionsToPackage{
@@ -10,13 +10,14 @@
         bibencoding=ascii,%
 	language=auto,%
 	style=ieee,%
-        sorting=ynt,
-        maxbibnames=3, 
-%     backref=true,
+        maxbibnames=100,
+        maxcitenames=2,
+        backref=false,
         natbib=false}{biblatex}
-\usepackage{inputenc,crop,graphicx,amsmath,array,color,amssymb,flushend,stfloats,amsthm,chngpage,times,datetime,parskip,epstopdf,url,lineno,microtype,tabularx,booktabs,multirow,multicol,colortbl,cases,algorithm,algpseudocode,algorithmicx,wasysym,footnpag,siunitx,csquotes,biblatex,hyperref}
+\usepackage{inputenc,crop,graphicx,amsmath,array,color,amssymb,flushend,stfloats,amsthm,chngpage,times,datetime,parskip,epstopdf,url,lineno,microtype,tabularx,booktabs,multirow,multicol,colortbl,cases,algorithm,algpseudocode,algorithmicx,wasysym,footnpag,siunitx,csquotes,biblatex,hyperref,wrapfig}
 \usepackage[loadonly]{enumitem}
 \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[bottom]{footmisc}
 
 %%%%%%%% References file %%%%%%%%
 \addbibresource{bibliography.bib}
@@ -32,7 +33,7 @@
 \newcommand{\Eqss}[2]{Eqs.\ \eqref{#1}--\eqref{#2}}
 \newcommand{\Fig}[1]{Figure~\ref{#1}}
 \newcommand{\Figs}[2]{Figures~\ref{#1}--\ref{#2}}
-\newcommand{\Tab}[1]{Table~\ref{#1}}
+\newcommand{\Table}[1]{Table~\ref{#1}}
 \newcommand{\Tabs}[2]{Tables~\ref{#1}--\ref{#2}}
 \newcommand{\ie}{i.\,e.,~}
 \newcommand{\Ie}{I.\,e.,~}
@@ -45,6 +46,11 @@
 \newcommand{\tr}{\textcolor{orange}}
 \newcommand{\tb}{\textcolor{blue}}
 \newcommand{\tg}{\textcolor{green}}
+\newcommand{\Mnota}[2]{\marginpar{\footnotesize{\tr{#1} \\ \tb{#2}}}}
+\newcommand{\ruru}{1.6mm}
+\newcommand{\TOPlines}{\hline\hline\noalign{\vskip\ruru}}
+\newcommand{\MIDline}{\noalign{\vskip\ruru}\hline\noalign{\vskip\ruru}}
+\newcommand{\BOTTOMlines}{\noalign{\vskip\ruru}\hline\hline}
 
 %%%%%%%% Unknown shit %%%%%%%%
 \makeatletter
