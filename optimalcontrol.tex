@@ -1,0 +1,145 @@
+%!TEX root = main.tex
+
+\subsection{Optimal control for low-thrust trajectories}
+\label{optimalcontrollt2o}
+% * <simone.ceccherini.sc@gmail.com> 2016-08-25T14:04:29.356Z:
+%
+% parte collegata dentro alla mission analysis. dire perché si minimizza il tempo (weakness EP), detto!... e che il trasferimento sarà 3D (cazzo siamo poveri che facciamo la dinamica planare?).
+%
+% ^.
+% * <simone.ceccherini.sc@gmail.com> 2016-08-25T14:16:18.462Z:
+%
+% qui inserirei la parte che hai messo nella mission analysis, quella con le equazioni e direi che la Thrust può essere considerata costante durante il trasferimento grazie al system design in seguito.
+%
+% ^.
+% * <simone.ceccherini.sc@gmail.com> 2016-08-25T14:10:06.684Z:
+%
+% la procedura NON è offline, la procedura con la quale si analizza l'EP segment si basa su di una 4D table lookup ottenuta OFFLINE TAU = F(rp,ra,T/m0,Isp). poi a descriverla ci penso io. il coverglass qui va tolto, perché non implica direttamente cambiamenti in questa fase. non calcolo  il DeltaV dell'EP. 
+%
+% ^.
+% * <simone.ceccherini.sc@gmail.com> 2016-08-25T15:11:02.609Z:
+%
+% MI SONO DIMENTICATO PRIMA DI SCRIVERLO. perché è fatto la 4D tablelookup? Decreasing the computational time and Uncoupling the Hybrid Transfer Analysis.
+%
+% ^.
+In the present work, each electric segment of the the transfer has been evaluated through an offline procedure, which, for each combination of $T/m_0,\,I_{sp},\,R_p^s,\,R_a^s$, allocates the corresponding trajectory and transfer time.
+
+% in order to, as it will be expressed in section \ref{sec_coverglass}, compute the EP transfer time.% $\Delta v$ and coverglass thickness $d_{cg}$.
+% qui puoi partire con la tua vera parte. io toglierei da J=int 1 etc fino a ala shooting function e inserirei belle referenze (anche alla tesi tua). poi ripartirei con la numerical continuation e lascerei tutto invariato, così spieghi bene il processo (menzionerei solo quali quantità si usano con relative reference). se necessario possono anche essere messe delle immagini.
+
+%PREVIOUS VERSION
+% As previously outlined, low-thrust transfers are optimized under a \emph{minimum-time} philosophy, developed according to an hard-constrained formulation and carried out through \red{the \emph{LT2O} sofware} (\red{Prof va bene software?}), thus requiring the spacecraft to complete the transfer in the least possible time and stemming the main disadvantage of the electric propulsion. Trajectory optimization is stated by explicitly defining a cost function expressed hereinafter:
+% \begin{equation}
+% \label{eq_costfunction}
+% J = \int_{t_0}^{t_f} 1\,dt
+% \end{equation}
+% Where $t_0$ and $t_f$ are the initial and final time, respectively. According to \cite{bryson1975applied}, the optimum of \Eq{eq_costfunction} is achieved by the adjoining of dynamics constraints, \textit{i.e.} the spacecraft motion dynamics, and the nullifying/zeroing of the first variation of the augmented cost function $\tilde{J}$:
+% %
+% \begin{equation}
+% \tilde{J} = \int_{t_0}^{t_f} 1 + \boldsymbol{\lambda} \cdot \left[ \mathbf{f}(\mathbf{x},\mathbf{u}) - \mathbf{\dot{x}} \right] 
+% \quad \Rightarrow \quad \delta \tilde{J} = 0
+% \end{equation}
+%
+% NEW VERSION
+As previously outlined, low-thrust transfers are optimized under a \emph{minimum-time} philosophy, developed according to an hard-constrained formulation and carried out through the \emph{LT2O} software, thus requiring the spacecraft to complete the transfer in the least possible time and stemming the main disadvantage of the electric propulsion. 
+Trajectory optimization is stated by explicitly defining a cost function, the optimum of whom is achieved by adjoining, according to \cite{bryson1975applied}, the dynamics constraints
+% \begin{equation}
+% \label{eq_costfunction}
+% J = \int_{t_0}^{t_f} 1\,dt
+% \end{equation}
+%
+\begin{equation}
+\tilde{J} = \int_{t_0}^{t_f} 1 + \boldsymbol{\lambda} \cdot \left[ \mathbf{f}(\mathbf{x},\mathbf{u}) - \mathbf{\dot{x}} \right] 
+\quad \Rightarrow \quad \delta \tilde{J} = 0
+\end{equation}
+%
+where $t_0$ and $t_f$ are the initial and final time, respectively, $\mathbf{f}$ is the \textit{ODE} system expressed in \Eq{eq_kepler2bp}, and $\boldsymbol{\lambda}$ is the vector of Lagrange multipliers. By building the Hamiltonian function $\mathcal{H}$, one may obtain the differential equation that Lagrange multipliers shall fulfill in order to achieved the optimum:
+\begin{equation}
+\mathcal{H} = 1 + \boldsymbol{\lambda} \cdot \mathbf{f}
+\quad
+\Rightarrow
+\quad
+\dot{\boldsymbol{\lambda}} = \begin{bmatrix}
+\dot{\boldsymbol{\lambda}}_r & \dot{\boldsymbol{\lambda}}_v & \dot{\lambda}_m
+\end{bmatrix} ^T
+= - \frac{\partial \mathcal{H}}{\partial \mathbf{x}}
+\end{equation}
+which doubles the size of the system of differential equations. Optimal control problems aims at finding the control law $\mathbf{u}(t)$ that brings the spacecraft to a desired state. This quantity is handled in a twofold way: while the thrust direction is computed through the primer vector \cite{lawden}, thrust modulation is taken into account by relying on Pontryagin's Maximum Principle \cite{pontryagin}:
+\begin{equation}
+\mathbf{\hat{u}} = \boldsymbol{\alpha} = -\frac{\boldsymbol{\lambda_v}}{\parallel\boldsymbol{\lambda_v} \parallel}
+\qquad
+u =
+\begin{cases}
+1 & \mathcal{S} < 0 \\
+0 & \mathcal{S} > 0 
+\end{cases}
+\end{equation}
+where $\mathcal{S}$ is called switching function. Therefore, while initial conditions are provided by the switching orbit, in terms of the triad $(r_p, r_a, \iota)$ and the initial mass $m_0$, final boundary condition shall be added to the formulation. This is expressed via the introduction of the shooting function $\mathscr{S}$:
+\begin{equation}
+\mathscr{S} = \begin{bmatrix}
+\mathbf{r}(t_f) - \mathbf{r^*} & \mathbf{v}(t_f) - \mathbf{v^*} & \lambda_m (t_f) & \mathcal{H}(t_f)
+\end{bmatrix}^T
+\end{equation}
+where first six conditions stand for the matching of the final point on the GEO, while last two arise from \cite{bryson1975applied}: the zeroing of the mass Lagrange multiplier means that final mass is free to vary, whilst the zeroing of the Hamiltonian assures the reaching of a minimum transfer time.
+
+The zeroing of the shooting function $\mathscr{S}$ is faced as a  Two-Point Boundary Value Problem which, through the application of the shooting method, is solved by reducing it to a sequence of Initial Value Problems. Accordingly, once a first integration has been performed, the unknown variable is iteratively adjusted  via a Newton's like scheme. 
+
+Nevertheless, to proceed with the integration of the system of differential equations, initial condition of the costate shall be properly identified in order to acquire the zeroing of the shooting function $\mathscr{S}$. In this work, numerical integration of the equations of motion are performed with a \textit{RK78} scheme properly modified in order to take into account the discontinuous behavior of the throttle factor. % \red{\textsc{optional}(Even because is useless) Due to the physical meaninglessly of this vector, it is usually hard to guess its proper value, thus \red{Adjoint} Control Transformation (\red{Mettere la reference}) is used to face such issue.}. 
+Hence, the problem is transformed into a root-finding problem, here summed-up:
+
+\textbf{Remark}: Find $\boldsymbol{\lambda^*_0}:\, \left\{ \mathscr{S}(\mathbf{x_0},\boldsymbol{\lambda^*_0}, [t_0; t_f]) = 0 \right\}$
+\\
+As a matter of fact, it is worth to mention that throttle factor is always equal to $1$, \textit{i.e.} the engine is always \emph{on} during the transfer for minimum time problem.
+
+\subsubsection{Numerical Continuation}
+\label{subsubsec:numericalcontinuation}
+As it is well known, root-finding schemes suffer for the great sensitivity to the initial conditions, \textit{i.e.} an initial guess too far from the radius of convergence of the Newton's method, hardly leads to a solution of the problem. 
+
+Numerical continuation provides effective ways of overcoming this drawback: basically, this method consists in perturbing the equation of interest in order to rely on an easier problem. Once the easier problem is solved, through a step-by-step procedure it is possible to come back to the original problem, providing, as first guess of the $i-th$ step, the converged solution at the $(i-1)-th$ step:
+%
+\begin{equation}
+\boldsymbol{\lambda_{0,k+1}} = \boldsymbol{\lambda^*_{0,k}}
+\end{equation}
+%
+In the present work thrust is perturbed according to \Eq{eq_thrustformula} and, after solving the problem with an high thrust $\tilde{T}$, usually far above the actual technology trends, it is gradually decreased down to the desired value of thrust-to-mass\footnote{Reference mass is fixed at $1000~\si{\kilo\gram}$.}.
+%}~the desired value  of thrust-to-mass ratio \red{$T/m_0 = 10^{-3}~\si{\meter\per\square\second}$ \red(DA VERIFICARE)}
+%
+\begin{equation}
+\label{eq_thrustformula}
+T_k = T + (\tilde{T} - T )\tau_k
+\end{equation}
+%
+Nonetheless, due to physical restrictions of the analyzed scenario, it occurs that the continuation process jams and the solution is not able to advance anymore. Numerical evidences showed that this behavior is caused by the problem formulation: hard constraint problems cannot handle smooth variations of the number of revolutions.
+%not accomplished, by a $n$-spirals transfer, where $n$ is the number of spirals required to perform the transfer under optimal conditions with $\boldsymbol{\lambda^*_{0,k}}$. Indeed, while this latter refers to a $n$-spirals transfer, whether one desires to decrease the thrust, the lower available control would require a higher number of spirals, \textit{i.e.} $n+1$ if the step is small enough. 
+To overcome this issue, Algorithm \ref{algo:contjump} has been implemented and, through proper modification of final conditions, especially regarding the true longitude $\vartheta(t_f)$, the software is helped in understanding that a further spiral shall be traveled to accomplish the transfer.
+
+\begin{algorithm}
+\caption{Thrust Continuation Algorithm}\label{algo:contjump}
+\begin{algorithmic}[1]
+\REQUIRE{$\boldsymbol{\lambda^*_{0,\tilde{T}}}$, $T$}
+\ENSURE{$\mathbb{P} = 
+\left[
+\boldsymbol{\lambda^*_{0,\tilde{T}}} \, \cdots \,
+\boldsymbol{\lambda^*_{0,T_{k}}} \, \cdots \,
+\boldsymbol{\lambda^*_{0,T}} 
+\right]
+$, $\mathbf{T}$}
+\WHILE{$T_k \neq T_{min}$}
+\STATE{Evaluate $\mathscr{S}(\mathbf{x_0},\boldsymbol{\lambda^*_0}, [t_0; t_f], T_k)$;}
+\IF{$\mathscr{S} = 0$;}
+%\STATE{A lot of stuff}
+\IF{$\vartheta(t_f) = \vartheta^*$;}
+\STATE{Decrease the thrust;}
+\ELSE
+\STATE{Iterate until $\vartheta(t_f) = \vartheta^*$;}
+\ENDIF
+\ELSE
+\STATE{Decrease the step $\Delta \tau / 2$;}
+\IF{$\Delta \tau / 2 < \Delta \tau_{toll}$;}
+%\STATE{Barrier encountered}
+\STATE{Update final true anomaly $\vartheta(t_f)$;}
+\ENDIF
+\ENDIF
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}

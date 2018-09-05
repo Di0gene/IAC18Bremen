@@ -1,0 +1,80 @@
+% packages to use
+\usepackage{bm}
+\usepackage{amsmath, amssymb, amsfonts, graphics, epsfig, latexsym, amsbsy}
+\usepackage{algorithmic,algorithm}
+\usepackage{cancel}
+%\usepackage{subfigure}
+%\usepackage[notref,notcite]{showkeys}  % use this to temporarily show labels
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=black, citecolor= black, urlcolor= black]{hyperref}
+%\usepackage{overcite}
+\usepackage{footnpag}                   % make footnote symbols restart on each page
+\usepackage[]{graphicx} %[dvips]
+\usepackage{placeins}
+\graphicspath{{Images/}}%
+\usepackage{xr}
+\usepackage{color}
+\newcommand*{\red}{\textcolor{red}}
+\newcommand*{\blue}{\textcolor{blue}}
+\usepackage{mathrsfs}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{titling}
+\usepackage{soul}
+\usepackage{enumitem}
+\setstcolor{red}
+\usepackage{lmodern}
+\usepackage{smartdiagram}
+%\captionsetup[subfigure]{labelformat=empty}
+\usepackage[labelfont=bf]{caption}
+\usepackage{threeparttable}
+\usepackage[overload]{empheq}
+\newtheorem{theorem}{Theorem}[section]
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+%\bibliographystyle{plain}%Choose a bibliograhpic style
+
+% new commands
+\newcommand{\de}{\partial}
+\newcommand{\ud}{{\rm d}}
+\newcommand{\ds}[1]{\displaystyle{#1}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\Eq}[1]{Eq.\ \eqref{#1}}
+\newcommand{\Eqs}[1]{Eqs.\ \eqref{#1}}
+\newcommand{\Fig}[1]{Fig.\ \ref{#1}}
+\newcommand{\Tab}[1]{Tab.\ \ref{#1}}
+\newcommand{\tr}{\textcolor{red}}
+%
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\renewcommand{\bs}[1]{\boldsymbol{#1}}
+%%%%
+\usepackage{siunitx}
+\usepackage{csquotes}
+\PassOptionsToPackage{
+	backend=biber,
+      bibencoding=ascii,%
+	language=auto,%
+	style=ieee,%
+    sorting=ynt,
+    maxbibnames=3, 
+%    backref=true,%
+    natbib=false
+}{biblatex}
+    \usepackage{biblatex}
+%\usepackage[autostyle, italian=guillemets]{csquotes}
+%\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+%\nocite{*}
+%\newcommand{\ped}{\scriptstyle}
+%
+%remove (a), (b), (etc) from the subbottom
+\makeatletter
+\@namedef{thesubfigure}{}
+\makeatother
+%dashedbox
+\usepackage{dashbox}
+\newcommand\dboxed[1]{\dbox{\ensuremath{#1}}}

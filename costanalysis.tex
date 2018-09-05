@@ -1,0 +1,57 @@
+%!TEX root = main.tex
+
+\section{Cost Analysis}
+\label{sec:costanalysis}
+A cost model is applied to all solutions obtained by means of the search grid (\figurename\ref{fig:searchgrid}) and it was based on the one given by \citeauthor{Randolph:2002aa}~\cite{Randolph:2002aa}. The mission costs associated with delivering the spacecraft into Geostationary Equatorial Orbit are expressed by the following equation
+\begin{equation}
+C_{\scriptstyle{tot}}~=~C_{\scriptstyle{\textsc{lv}}}+C_{\scriptstyle{\textsc{m}}}+C_{\scriptstyle{\textsc{op}}}+C_{\scriptstyle{\textsc{s/c}}}
+\label{eq:costetot}
+\end{equation}
+where $C_{\scriptstyle{\textsc{lv}}}$ is the launch vehicle cost, $C_{\scriptstyle{\textsc{m}}}$ is the cost of money, and $C_{\scriptstyle{\textsc{op}}}$ and $C_{\scriptstyle{\textsc{s/c}}}$ are the EOR operating spacecraft spacecraft costs respectively.
+For consistency in referring to cost estimates, costs in equation (\ref{eq:costetot}) are adjusted with the Inflation Factor (\textit{IF}) relative to the Year $2012$ to the Fiscal Year $2020$ (IF$=1.1815$) by \cite{wertz2011space}.
+The launch vehicle cost is obtained considering as launchers the Soyuz and the Ariane 44L\footnote{Ariane 44L, variation of Ariane 4, is used because its data are available, to the best knowledge of the authors , even if its end of life in 2003.}~\cite{wertz2011space}~in \tablename\ref{tab:launcheroptions}, and the delivered mass in LEO:
+%
+\begin{table*}[htp]
+\footnotesize
+\centering
+\caption[Launcher options.]{\textbf{Launcher options.}}
+\label{tab:launcheroptions}
+\begin{threeparttable}
+\begin{tabular}{*{4}{c}}
+\toprule
+\toprule
+&Capacity &Average &Launch\\
+&payload in \textsc{leo}&Launch Cost$^{\dagger}$&placed in \textsc{leo}$^{\dagger}$~-~C${\scriptstyle{_{\textsc{leo}}^{\textsc{lv}}}}$\\
+&\multicolumn{1}{c}{$\si{\kilo\gram}$}&\multicolumn{1}{c}{$K\$$}&\multicolumn{1}{c}{$K\$$}\\
+\midrule
+Soyuz&$7000$&51075&7.40\\
+Ariane~$44$L&$10200$&$153225$&15.00\\
+\bottomrule
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item[$\dagger$] FY2010 $\$K$ (in $2010$ thousands of dollars).
+\end{tablenotes}
+\end{threeparttable}
+\end{table*}
+\begin{equation}
+C_{\scriptstyle{\textsc{lv}}}~=~ C{\scriptstyle{_{\textsc{leo}}^\textsc{lv}}}\times m_{\scriptstyle{\textsc{leo}}}
+\end{equation}
+The cost of money is defined as the interest on money paid for at launch but not recovered until delivery to a geostationary orbit \cite{Randolph:2002aa}:
+\begin{equation}
+C_{\scriptstyle{\textsc{m}}}~=~%
+\Bigl[\bigl(C_{\scriptstyle{\textsc{lv}}}%
++C_{\scriptstyle{\textsc{s/c}}}\bigr)%
+\bigl(1+I\bigr)\Bigr]\bigl(\left(1+r\right)^{\tau}-1\bigr)
+\end{equation}
+The terms $I$, $r$, and $\tau$ are the percentages of program cost spent on insurance ($20\%$ by assumption) the assumed interest rate of $10\%$, and the transfer time ($\tau_{\textsc{transfer}}$) expressed in yearly fractions, respectively.
+Operating cost for EOR is assumed to be $20~\tfrac{\$K}{day}$ by \cite{Randolph:2002aa}:
+\begin{equation}
+C_{\scriptstyle{\textsc{op}}}~=~20\times\tau_{\textsc{ep}}
+\end{equation}
+The spacecraft cost is obtained using the \textsc{USCM8} for recurring cost~\cite{wertz2011space}.
+Dealing with the evaluation of the spacecraft's cost, the only problem is that the EP components, usually not so cheap, are not taken into account because public data was not available during the development of this work.
+
+The results of this economic analysis are considered in a \emph{transfer time, total cost} framework. 
+It is important to note that they are quite sensitive to the assumptions of the model.
