@@ -143,7 +143,7 @@
 \twocolumn[
 %\thispagestyle{plain}
 \begin{center}
-IAC-16-C1.4.8
+IAC-18,C1,8,11,x47038
 \vskip \baselineskip
 {\titlefont\@inserttitle}
 \vskip \baselineskip
@@ -170,12 +170,12 @@ IAC-16-C1.4.8
 
 \makepagestyle{iachead}
 \makeheadrule{iachead}{\textwidth}{0pt}
-\makeevenfoot{iachead}{IAC-16-C1.4.8}{}{Page \thepage\ of \thelastpage}
-\makeoddfoot{iachead}{IAC-16-C1.4.8}{}{Page \thepage\ of \thelastpage}
-\makeevenhead{iachead}{}{\footnotesize {67$^{\mathrm{th}}$ International Astronautical %
-Congress, Guadalajara, Mexico. Copyright \copyright 2016 by Simone Ceccherini.}}{}
-\makeoddhead{iachead}{}{\footnotesize {67$^{\mathrm{th}}$ International Astronautical %
-Congress, Guadalajara, Mexico. Copyright \copyright 2016 by Simone Ceccherini.}}{}
+\makeevenfoot{iachead}{IAC-18,C1,8,11,x47038}{}{Page \thepage\ of \thelastpage}
+\makeoddfoot{iachead}{IAC-18,C1,8,11,x47038}{}{Page \thepage\ of \thelastpage}
+\makeevenhead{iachead}{}{\footnotesize {69$^{\mathrm{th}}$ International Astronautical %
+Congress, Bremen, Germany. Copyright \copyright 2018 by Dei Tos, Topputo, Massari, Biggs, and Cipriano.}}{}
+\makeoddhead{iachead}{}{\footnotesize {69$^{\mathrm{th}}$ International Astronautical %
+Congress, Bremen, Germany. Copyright \copyright 2018 by Dei Tos, Topputo, Massari, Biggs, and Cipriano.}}{}
 \pagestyle{iachead}
 
 %% FIGURE/TABLE CAPTIONS

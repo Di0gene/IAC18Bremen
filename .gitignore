@@ -1,0 +1,32 @@
+main.pdf
+*eps-converted-to.pdf
+
+### Folders ###
+.DS_Store
+
+### File Extensions ###
+*.nlo
+*.acn
+*.acr
+*.alg
+*.asv
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.glg
+*.glo
+*.gls
+*.gz
+*.ist
+*.lof
+*.log
+*.lot
+*.mexmaci64
+*.mexa64
+*.mexw64
+*.m~
+*.out
+*.toc
+*.xml
+
