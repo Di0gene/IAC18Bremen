@@ -101,7 +101,8 @@
 \renewcommand{\chaptitlefont}{\secheadstyle}
 
 %% SECTIONS
-\setsecnumdepth{subsubsection}
+%\setsecnumdepth{subsubsection}
+\setsecnumdepth{paragraph}
 
 \setsecheadstyle{\Large\bfseries\flushleft}
 \setsubsecheadstyle{\scshape\flushleft}
