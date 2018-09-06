@@ -102,7 +102,7 @@
 
 %% SECTIONS
 %\setsecnumdepth{subsubsection}
-\setsecnumdepth{paragraph}
+\setsecnumdepth{subsubsection}
 
 \setsecheadstyle{\Large\bfseries\flushleft}
 \setsubsecheadstyle{\scshape\flushleft}
@@ -112,8 +112,8 @@
 %\setaftersubsubsecskip{0.0\baselineskip}
 %\setsecnumformat{\csname the#1\endcsname.\ }
 %% remove unneeded chapter number from section headers
-\renewcommand\thesection{\uppercase{\arabic{section}}.}
-\renewcommand\thesubsection{\thesection\uppercase{\arabic{subsection}}}
+\renewcommand\thesection{\uppercase{\arabic{section}}}
+\renewcommand\thesubsection{\thesection.\uppercase{\arabic{subsection}}}
 
 
 %% THE TITLE
@@ -181,12 +181,16 @@ Congress, Bremen, Germany. Copyright \copyright 2018 by Dei Tos, Topputo, Massar
 
 %% FIGURE/TABLE CAPTIONS
 %define subfloats, we don't use subfig/subfigure
-\newsubfloat{figure}
+
+%%%%%% START MOD DIOGENE %%%%
+%\newsubfloat{figure}
 \newsubfloat{table}
 
 \renewcommand{\figurename}{Fig.}
 \captiondelim{: }
 \hangcaption
+%%%%%% END MOD DIOGENE %%%%
+
 %\captionnamefont{\footnotesize}
 %\captiontitlefont{\footnotesize}
 %new legend
