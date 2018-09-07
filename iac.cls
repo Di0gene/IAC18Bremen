@@ -174,9 +174,9 @@ IAC-18,C1,8,11,x47038
 \makeevenfoot{iachead}{IAC-18,C1,8,11,x47038}{}{Page \thepage\ of \thelastpage}
 \makeoddfoot{iachead}{IAC-18,C1,8,11,x47038}{}{Page \thepage\ of \thelastpage}
 \makeevenhead{iachead}{}{\footnotesize {69$^{\mathrm{th}}$ International Astronautical %
-Congress, Bremen, Germany. Copyright \copyright 2018 by Dei Tos, Topputo, Massari, Biggs, and Cipriano.}}{}
+Congress, Bremen, Germany. Copyright \copyright 2018 by Dr.\ Diogene A.\ Dei Tos. Published by the IAF, with permission and released to the IAF to publish in all forms.}}{}
 \makeoddhead{iachead}{}{\footnotesize {69$^{\mathrm{th}}$ International Astronautical %
-Congress, Bremen, Germany. Copyright \copyright 2018 by Dei Tos, Topputo, Massari, Biggs, and Cipriano.}}{}
+Congress, Bremen, Germany. Copyright \copyright 2018 by Dr.\ Diogene A.\ Dei Tos. Published by the IAF, with permission and released to the IAF to publish in all forms.}}{}
 \pagestyle{iachead}
 
 %% FIGURE/TABLE CAPTIONS
