@@ -187,7 +187,7 @@ Quasi-halo orbits of \Fig{fig:EMquasihalos} are possible LUMIO operative orbits.
 	\label{fig:CONOPS}
 \end{figure}
 %
-In the {CRTBP}, the libration points are at rest with respect to a frame co-rotating with the smaller and larger primaries. Consequently, a halo orbiting the Earth--Moon $L_2$ always faces the lunar farside. On top of this, for a wide range of Jacobi energies, Earth--Moon $L_2$ halos are almost locked into a $2$:$1$ resonance, that is $2$ orbital revolutions in $1$ synodic period. The Sun completes a full revolution around the Moon in one synodic period, approximately $T_{\textrm{syn}} = 29.4873$ days. The synodic period is slightly larger than the lunar orbital period around Earth to account for the amount the Sun has moved along its orbit in this duration.
+In the {CRTBP}, the libration points are at rest with respect to a frame co-rotating with the smaller and larger primaries. Consequently, a halo orbiting the Earth--Moon $L_2$ always faces the lunar farside. On top of this, for a wide range of Jacobi energies, Earth--Moon $L_2$ halos are almost locked into a $2$:$1$ resonance, that is $2$ orbital revolutions in $1$ synodic period. The sun completes a full revolution around the Moon in one synodic period, approximately $T_{\textrm{syn}} = 29.4873$ days. The synodic period is slightly larger than the lunar orbital period around Earth to account for the amount the sun has moved along its orbit in this duration.
 
 The quasi-resonance locking, which is also preserved in the full ephemeris quasi-halos, enables LUMIO operations to be repetitive and regular. Within the operative phase, each synodic month LUMIO moves along a) a \emph{Science orbit} (dark solid line in \Fig{fig:CONOPS}) and b) a \emph{Navigation and Engineering orbit} (light colored solid line in \Fig{fig:CONOPS}). During the Science orbit, lasting roughly $14$ days, the Moon farside has optimal illumination conditions to perform flash observations (\ie at least half lunar disk is dark). On the other hand, during the Nav\&Eng orbit the Moon farside illumination conditions are apt to optical navigation routines. LUMIO concept of operations (ConOps) is somewhat simplified and tight to both resonance mechanisms and illumination conditions to properly enable scientific or other operations.
 
@@ -495,7 +495,6 @@ where $\vect{r}_t$ and $\vect{r}_{\textrm{sm}}$ are the positions along the tran
 	\end{align}
 	%
 The minimization is solved with an active-set algorithm.
-\tr{ARRIVATO QUI CHECK.}
 
 
 %% TCMs %%%%%
@@ -510,7 +509,7 @@ Algorithm \ref{alg:TransferDeign} is applied to all halos in the Jacobi energy r
 \end{figure*}
 %
 %
-\begin{figure}[b!]
+\begin{figure}[t]
 	\centering
 	\hfill
 	\subfloat[$t_{\textrm{po}} = 0$.]{\includegraphics[width=\posteggio]{Hc09SM_M1.pdf}\label{subfig:Hc09SM_M1}}
@@ -526,26 +525,24 @@ Algorithm \ref{alg:TransferDeign} is applied to all halos in the Jacobi energy r
 \end{figure}
 %
 
-It is conjectured the reason why the transfer cost has a clearcut minimum area is twofold. 1) For high energy levels (\ie low Jacobi constant), the stable manifold configuration space does not get close enough to the Moon to permit intersection with the selenocentric transition orbit. At the other end of the spectrum, 2) for high Jacobi constant values, the stable manifolds cross the lunar region sufficiently close to provide patching opportunities with a selenocentric transition orbit, but the speed mismatch is comparatively large. \Ie the outbound stable manifold is much faster than the S/C at periselene. The transfer parameters are shown in \Table{tab:TranferParameters}. As expected, the {SMIM} occurs at the pericenter of the transition orbit. Interestingly, the inclination of the transition orbit already lies within the parking orbit bounds, and no plane maneuver is necessary.
+It is conjectured the reason why the transfer cost has a clearcut minimum area is twofold. 1) For high energy levels (\ie low Jacobi constant), the stable manifold configuration space does not get close enough to the Moon to permit intersection with the selenocentric transition orbit. At the other end of the spectrum, 2) for high Jacobi constant values, the stable manifolds cross the lunar region sufficiently close to provide patching opportunities with a selenocentric transition orbit, but the speed mismatch is comparatively large. \Ie the outbound stable manifold is much faster than the S/C at periselene. The optimal transfer parameters are shown in \Table{tab:TranferParameters}. As expected, the {SMIM} occurs at the pericenter of the transition orbit. The inclination of the transition orbit already lies within the parking orbit bounds, and no plane maneuver is necessary.
 %
-%\begin{wraptable}{R}{0.3\textwidth}
-\begin{table}[h!]
+\begin{table}[b!]
 	\caption{Main parameters for the transfer phase.}
 	\label{tab:TranferParameters}
 	\centering
-	\scriptsize
+	\footnotesize
 	\begin{tabular}{ccccccc}
 		\TOPlines
-		Parameter & $h_p$ & $h_a$ & $a$ & $e$ & $i$ & $\Omega$ \\
-		Value & $200$ & $14964.2$ & $9319.2$ & $0.7921$ & $78.1$ & $30.0$ \\ 
-		Units & [km] & [km] & [km] & [-] & [deg] & [deg] \\
+		Parameter & $h_a$ & $a$ & $e$ & $i$ & $\Omega$ \\
+		Value & $14964.2$ & $9319.2$ & $0.7921$ & $78.1$ & $30.0$ \\ 
+		Units & [km] & [km] & [-] & [deg] & [deg] \\
 		\MIDline
 		Parameter & $\omega$ & $\vartheta$ & $T$ & $t_{\textrm{po}}$ & $t_{\textrm{sm}}$ & \\
-		Value & $301.2$ & $\approx0$ & $22.42551$ & $0.7406$ & $7.5397$ & \\
+		Value & $301.2$ & $\approx0$ & $22.425$ & $0.7406$ & $7.5397$ & \\
 		Units & [deg] & [deg] & [hours] & [adim] & [adim] & \\
 		\BOTTOMlines
 	\end{tabular}
-	%\end{wraptable}
 \end{table}
 %
 
@@ -553,9 +550,9 @@ It is conjectured the reason why the transfer cost has a clearcut minimum area i
 \subsection{Trajectory correction maneuvers}\label{subsec:Monte Carlo analysis for TCMs scheduling}
 A number of trajectory correction maneuvers (TCM) is scheduled to occur during the transfer along the stable manifold. In this work, the timing and the number of {TCM} is fixed. In particular, two {TCM} are scheduled, the first one day after the {SMIM}, and the second $7$ days after $\Delta\vect{v}_{\textrm{SMIM}}$, or equivalently $6$ days after TCM1. A detailed study of the TCM problem for several {LPO}, just by using simple dynamical systems concepts, has shown that two {TCM} provide sufficient degrees of freedom \cite{gomez2005TCM}.
 
-In this work, the {TCM} are found using optimal control theory \cite{serban2002haloTCM}. The total {TCM} cost, $J = \|\Delta\vect{v}_{\textrm{TCM1}}\|+\|\Delta\vect{v}_{\textrm{TCM2}}\|$, is minimized such that the state dispersion at the halo injection epoch is within $1000$ km in position and $1$ m/s in velocity. The dispersion is triggered by a bias in the stable manifold injection point, that may represent, for instance, thrust misalignment in the execution of the {SMIM} and/or orbit determination uncertainties. A Monte-Carlo simulation is run with $10,000$ random initializations of the bias error, with Gaussian distribution, after the {SMIM} is performed. During each Monte-Carlo run, an optimal problem is solved for the magnitudes and directions of $\Delta\vect{v}_{\textrm{TCM1}}$ and $\Delta\vect{v}_{\textrm{TCM2}}$.
+In this work, the {TCM} are found using optimal control theory \cite{serban2002haloTCM}. The total {TCM} cost, $J = \|\Delta\vect{v}_{\textrm{TCM1}}\|+\|\Delta\vect{v}_{\textrm{TCM2}}\|$, is minimized such that the state dispersion at the halo injection epoch is within $1000$ km in position and $1$ m/s in velocity. The dispersion is triggered by a bias in the stable manifold injection point, that may represent, for instance, thrust misalignment in the execution of the {SMIM} and/or orbit determination uncertainties. A Monte-Carlo simulation is run with $10,000$ random initializations of the bias error, with zero-mean Gaussian distribution, after the {SMIM} is performed. During each Monte-Carlo run, an optimal problem is solved for the magnitudes and directions of $\Delta\vect{v}_{\textrm{TCM1}}$ and $\Delta\vect{v}_{\textrm{TCM2}}$.
 %
-\begin{figure*}[b!]
+\begin{figure*}[t!]
 	\centering
 	\hfill
 	\subfloat[PDF of TCM1.]{\includegraphics[width=0.248\textwidth]{TCM1_pdf.pdf}\label{subfig:TCM1_pdf}}
@@ -577,10 +574,11 @@ In this work, the {TCM} are found using optimal control theory \cite{serban2002h
 %
 
 %
-\begin{table}[]
+\begin{table}[b!]
 	\caption{TCM confidence.}
 	\label{tab:TCMconfidence}
 	\centering
+	\footnotesize
 	\begin{tabular}{cccc}
 		\TOPlines
 		\multirow{2}{*}{TCM} & \multicolumn{3}{c}{$\|\Delta\vect{v}_{\textrm{TCM}}\|$ [m/s]} \\
@@ -592,7 +590,7 @@ In this work, the {TCM} are found using optimal control theory \cite{serban2002h
 	\end{tabular}
 \end{table}
 %
-\Table{tab:TCMconfidence} shows the {TCM} costs with $1\sigma$, $2\sigma$, and $3\sigma$ confidence, for the transfer towards halo ID $-100009$. Monte-Carlo output data has been fit to match a Burr-type probability distribution function (PDF). The probability distribution functions of TCM1 and TCM2 are shown in \Fig{subfig:TCM1_pdf} and \Fig{subfig:TCM2_pdf}, respectively, while the cumulative distribution functions of TCM1,2 are shown in \Fig{subfig:TCM1_cdf} and \Fig{subfig:TCM2_cdf}, respectively. Clearly, the first {TCM} is predominant, while the second adjusts the trajectory for a precise targeting of the halo injection point. Finally, \Fig{subfig:TCMPositionConfidence} and \Fig{subfig:TCMVelocityConfidence} display the position and velocity ellipsoids, respectively, that ensure a $95\%$ confidence level for the {HIM} targeting. Position and velocity trajectories from the {SMIM} to the {HIM} are also shown. The main axis of inertia of the position confidence ellipsoid span $(277.2,663.7,3024.2)$ km, whilst those of the velocity confidence ellipsoid span $(0.69,0.83,2.65)$ m/s.
+\Table{tab:TCMconfidence} shows the {TCM} costs with $1\sigma$, $2\sigma$, and $3\sigma$ confidence, for the transfer towards halo ID $-100009$. Monte-Carlo output data has been fit to match a Burr-type probability distribution function (PDF). The probability distribution functions of TCM1 and TCM2 are shown in \Fig{subfig:TCM1_pdf} and \Fig{subfig:TCM2_pdf}, respectively, while the cumulative distribution functions of TCM1,2 are shown in \Fig{subfig:TCM1_cdf} and \Fig{subfig:TCM2_cdf}, respectively. Clearly, the first {TCM} is predominant, while the second adjusts the trajectory for a precise targeting of the halo injection point. Finally, \Fig{subfig:TCMPositionConfidence} and \Fig{subfig:TCMVelocityConfidence} display the position and velocity ellipsoids, respectively, that ensure a $95\%$ confidence level for the {HIM} targeting. Position and velocity trajectories from the {SMIM} to the {HIM} are also shown. The main axis of inertia of the confidence ellipsoid span $(277.2,663.7,3024.2)$ km in position $(0.69,0.83,2.65)$ m/s in velocity.
 
 \section{Baseline mission} \label{sec:baseline_mission}
 %----------------------------------------------------------------------------------------
@@ -613,6 +611,7 @@ Mission $\Delta v$ budgets for each maneuver and phase are reported in \Table{ta
 	\caption{Mission $\Delta v$ budgets.}
 	\label{tab:MissiondvBudgets}
 	\centering
+	\footnotesize
 	\begin{tabular}{ccc|cc}
 		\TOPlines
 		\multirow{2}{*}{Maneuver} & \multicolumn{4}{c}{Cost [m/s]} \\
@@ -635,10 +634,10 @@ Mission $\Delta v$ budgets for each maneuver and phase are reported in \Table{ta
 
 %----------------------------------------------------------------------------------------
 \subsection{Time window for injection into parking orbit}\label{subsec:Time window for injection into parking orbit}
-The time window for parking orbit insertion is selected solely based on constraints on autonomy of navigation. During the parking phase, LUMIO uses the Earth as celestial reference for optical navigation. To ensure a sufficient degree of performance of the camera and the extended Kalman filter, at least $50\%$ of the Earth visible part shall be illuminated for more than seven consecutive days. These constraints translates into LUMIO--Earth--Sun angles, as sketched in \Fig{fig:InitialDateLUMIO}, and thus into epochs. Specifically, there are $12$ possible insertion windows during any year lasting approximately $7$ days. \Table{tab:InitialDateLUMIO} displays the injection date windows for the year $2023$.
+The time window for parking orbit insertion is selected solely based on constraints on autonomy of navigation. During the parking phase, LUMIO uses the Earth as celestial reference for optical navigation. To ensure a sufficient degree of performance of the camera and the filtering routine, at least $50\%$ of the Earth visible part shall be illuminated for more than seven consecutive days. These constraints translates into LUMIO--Earth--sun angles, as sketched in \Fig{fig:InitialDateLUMIO}, and thus into epochs. Specifically, there are $12$ possible insertion windows during any year lasting approximately $7$ days. \Table{tab:InitialDateLUMIO} displays the injection date windows for the year $2023$.
 
 %
-\begin{figure}[b!]
+\begin{figure}[t!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{InitialDate.pdf}
 	\caption{Sketch of initial date selection.}
@@ -648,6 +647,7 @@ The time window for parking orbit insertion is selected solely based on constrai
 %
 \begin{table}[]
 	\centering
+	\footnotesize
 	\caption{Initial dates.}
 	\begin{tabular}{cccc}
 		\TOPlines
@@ -676,16 +676,16 @@ The time window for parking orbit insertion is selected solely based on constrai
 %----------------------------------------------------------------------------------------
 \subsection{Granular operations}\label{subsec:granularops}
 %
-\begin{figure}[]
+\begin{figure}[b!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{QuasiHaloPeriod.pdf}
-	\caption{Quasi-halo period. Dashed line is the period of the generating CRTBP halo.}
+	\includegraphics[width=0.45\textwidth]{QuasiHaloPeriod.pdf}
+	\caption{Quasi-halos period. Line is the period of the CRTBP halo.}
 	\label{fig:QuasiHaloPeriod}
 \end{figure}
 %
-The period of the refined quasi-halo does not match the constant orbital period of its {CRTBP} counterpart, neither it matches the synodic period of the Earth--Moon system with respect to the Sun. Thus, the S/C orbiting the quasi-halo is not locked in a $2$:$1$ resonance mechanism, rather it oscillates with varying amplitude around a nominal value, as shown in \Fig{fig:QuasiHaloPeriod}.
+The period of the quasi-halo does not match the constant orbital period of its {CRTBP} counterpart, neither it matches the synodic period of the Earth--Moon system. Thus, the S/C orbiting the quasi-halo is not locked in a $2$:$1$ resonance mechanism, rather it oscillates with varying amplitude around a nominal value, as shown in \Fig{fig:QuasiHaloPeriod}.
 
-The regular and repetitive {CONOPS} outlined in Section \ref{subsec:CONOPS} has been used to plan and the S/K strategy (see Section \ref{subsec:S/K strategy}). In the real-life application, the spacecraft would have to switch between Science and Nav\&Eng orbits based on in-flight requirements and feasibility of operations. For example, during the Science orbit the spacecraft shall observe the lunar surface with the optical payload to meet the mission scientific goals and requirements. In order to increase the signal-to-noise ratio (SNR) of optical measurements, observations must be made with sufficient dark condition on the Moon farside. A threshold of $50\%$ illumination is put to avoid stray light and saturation of the detector. On the other hand, one of the tasks LUMIO shall carry out during the Nav\&Eng orbit is autonomous optical orbit determination, whose performances increase with the visible illuminated percentile of lunar surface.
+The regular and repetitive ConOps outlined in Section \ref{subsec:CONOPS} has been used to plan and the S/K strategy (see Section \ref{subsec:S/K strategy}). In the real-life application, the spacecraft would have to switch between Science and Nav\&Eng orbits based on in-flight requirements and feasibility of operations. For example, during the Science orbit the spacecraft shall observe the lunar surface with the optical payload to meet the mission scientific goals and requirements. In order to increase the signal-to-noise ratio (SNR) of optical measurements, observations must be made with sufficient dark condition on the Moon farside. A threshold of $50\%$ illumination is put to avoid stray light and saturation of the detector. On the other hand, one of the tasks LUMIO shall carry out during the Nav\&Eng orbit is autonomous optical orbit determination, whose performances increase with the visible illuminated percentile of lunar surface.
 %
 \begin{figure*}[t!]
 	\centering
@@ -695,7 +695,7 @@ The regular and repetitive {CONOPS} outlined in Section \ref{subsec:CONOPS} has 
 \end{figure*}
 %
 
-A geometric constraint on the illuminated portion of the Moon farside can be used to trigger operations switch between Science and Nav\&Eng orbits, compatibly with the task LUMIO has to perform. The illumination condition depends on the mission initial epoch. In \Fig{fig:CONOPS_Granularity}, three timelines are shown: 1) the top line corresponds to a regular planning of {CONOPS}, 2) the middle timeline represents the epoch-dependent {CONOPS} when the geometric constraint on illumination of lunar farside is considered, and 3) the bottom timeline is the intersection between planning and geometry {CONOPS}. Clearly, the duration of the Science orbits, according to the geometric analysis, experiences large deviations, always being lower than the assumed $14$ days. The bottom timeline is interpreted as follows: if the flight dynamics team deems that the regular and repetitive features of the S/K strategy has to be preserved, then the windows in which Science or Nav\&Eng tasks may be carried out are those highlighted in the bottom timeline of \Fig{fig:CONOPS_Granularity}.
+A geometric constraint on the illuminated portion of the Moon farside is used to trigger operations switch between Science and Nav\&Eng orbits, compatibly with the task LUMIO has to perform. The illumination condition depends on the mission initial epoch. In \Fig{fig:CONOPS_Granularity}, three timelines are shown: 1) the top line corresponds to a regular planning of ConOps, 2) the middle timeline represents the epoch-dependent ConOps when the geometric constraint on illumination of lunar farside is considered, and 3) the bottom timeline is the intersection between planning and geometry ConOps. Clearly, the duration of the Science orbits, according to the geometric analysis, experiences large deviations, always being lower than the assumed $14$ days. The bottom timeline is interpreted as follows: if the flight dynamics team deems that the regular and repetitive features of the S/K strategy has to be preserved, then the windows in which Science or Nav\&Eng tasks may be carried out are those highlighted in the bottom timeline of \Fig{fig:CONOPS_Granularity}.
 %
 \begin{figure*}[t!]
 	\centering
@@ -709,8 +709,7 @@ A geometric constraint on the illuminated portion of the Moon farside can be use
 	\caption{LUMIO timeline.}
 	\label{tab:Timeline}
 	\centering
-	\small
-%	\footnotesize
+	\footnotesize
 	\begin{tabularx}{\textwidth}{ccccX}
 		\TOPlines
 		Order & Date ($2023$) & Time & Task & Description \\
@@ -726,15 +725,13 @@ A geometric constraint on the illuminated portion of the Moon farside can be use
 \end{table*}
 %
 
-Maximization of Science orbit duration leads to the selection of windows for possible mission starting dates. \Fig{fig:InitialDateGraph} shows the effective days allocated to Science and Nav\&Eng orbits. The worst deviations from the ideal scenario occurs across the spring equinox occurring on March $20$ $2023$ at $21$:$25$ GMT, that is roughly $115.5$ days after the starting date for the parametric search. As a result, out of $182$ days the best situation offers a Science of $82.2\%$ and a Nav\&Eng of $86.5\%$ over a 1-year test case for nominal operative life, with the {HIM} planned on September $6$ $2023$ and the parking orbit release window between August $8$-$16$ 2023. 
-
-\subsection{Timeline}
-\Table{tab:Timeline} shows a detailed timeline for the proposed LUMIO mission.
+Maximization of Science orbit duration leads to the selection of windows for possible mission starting dates. \Fig{fig:InitialDateGraph} shows the effective days allocated to Science and Nav\&Eng orbits. The worst deviations from the ideal scenario occurs across the spring equinox occurring on March $20$ $2023$ at $21$:$25$ GMT, that is roughly $115.5$ days after the starting date for the parametric search. As a result, out of $182$ days the best situation offers a Science of $82.2\%$ and a Nav\&Eng of $86.5\%$ over a 1-year test case for nominal operative life, with the {HIM} planned on September $6$ $2023$ and the parking orbit release window between August $8$-$16$ 2023. \Table{tab:Timeline} shows a detailed timeline for the proposed LUMIO mission.
 
 
 %%%%%%%%%
 \section{Conclusion}\label{sec:cncls}
-\tr{TO WRITE}
+The primary science goal of LUMIO is to observe meteoroid impact flashes on the lunar farside in order to study the characteristics of meteoroids and to improve the meteoroid models of the solar system. This may lead to a further study of the sources of these meteoroids, such as asteroids in the near-Earth environment and comets. LUMIO complements ground-based observations with remote space-based observations, so improving the lunar situational awareness. 
 
+A baseline for LUMIO mission is proposed. An orthodox trade-off logic is followed, resulting in the selection of a Earth--Moon $L_2$ quasi-halo orbit as operative solution. Extensive Monte-Carlo simulations show the feasibility of the mission also in terms of trajectory correction maneuvers during the stable manifold transfer, and in terms of station-keeping cost during the Navigation and Engineering orbit. This allows for a pristine Science orbit and thus maximize the scientific return of the mission. The $\Delta v$ budget of $227$ m/s, at $3\sigma$ confidence, is within the capabilities of a CubeSat and in line with the deployment platform requirements.
 
 %%% END %%%
